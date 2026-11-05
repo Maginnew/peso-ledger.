@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Peso Ledger</title>
+  <meta name="description" content="Tus finanzas personales en pesos: movimientos, cuotas, presupuestos, metas e inflación.">
+  <meta name="theme-color" content="#256abf">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Peso Ledger">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <noscript>Peso Ledger necesita JavaScript activado.</noscript>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">$</span><span>Peso Ledger</span></div>
+      <nav class="nav" id="sideNav"></nav>
+      <div class="sidebar-foot" id="sideFoot"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1 id="viewTitle">Inicio</h1>
+        <div class="month-picker" id="monthPicker">
+          <button class="icon-btn" data-action="prev-month" aria-label="Mes anterior">‹</button>
+          <button class="month-label" data-action="this-month" id="monthLabel" title="Volver al mes actual"></button>
+          <button class="icon-btn" data-action="next-month" aria-label="Mes siguiente">›</button>
+        </div>
+        <div class="top-actions">
+          <button class="btn small" data-action="install-app" id="installBtn" hidden title="Instalar Peso Ledger como una app">⬇ Instalar app</button>
+          <button class="icon-btn" data-action="toggle-privacy" id="privacyBtn" title="Ocultar montos (P)" aria-label="Ocultar montos"></button>
+          <button class="icon-btn" data-action="toggle-theme" id="themeBtn" title="Cambiar tema" aria-label="Cambiar tema"></button>
+          <button class="btn primary add-desktop" data-action="add-tx" title="Cargar movimiento (N)">+ Cargar</button>
+        </div>
+      </header>
+      <div id="banner"></div>
+      <section id="view" class="view" aria-live="polite"></section>
+    </main>
+
+    <nav class="bottom-nav" id="bottomNav"></nav>
+    <button class="fab" data-action="add-tx" aria-label="Cargar movimiento">+</button>
+  </div>
+
+  <dialog id="txDialog" class="dialog"></dialog>
+  <dialog id="modal" class="dialog"></dialog>
+  <div id="tooltip" class="tooltip" hidden></div>
+  <div id="toast" class="toast" role="status"></div>
+  <input type="file" id="fileJson" accept=".json,application/json" hidden>
+  <input type="file" id="fileCsv" accept=".csv,text/csv,.txt" hidden>
+
+  <script src="app.js"></script>
+</body>
+</html>
