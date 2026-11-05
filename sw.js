@@ -1,15 +1,15 @@
 /* Service worker de Peso Ledger: guarda la app para que abra sin conexión.
    Estrategia: responde desde la caché al instante y actualiza en segundo plano.
    Si cambiás algún archivo, subí VERSION para forzar la actualización. */
-const VERSION = 'pl-v2';
-const FILES = [
-  './', './index.html', './styles.css', './app.js', './manifest.json',
-  './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png',
-  './icons/apple-touch-icon.png', './icons/favicon-32.png',
-];
+const VERSION = 'pl-v3';
+const CORE = ['./', './index.html', './styles.css', './app.js', './manifest.json'];
+const EXTRA = ['./icon-192.png', './icon-512.png', './maskable-512.png', './apple-touch-icon.png', './favicon-32.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
+  // Los íconos son opcionales: si alguno falta, la app igual se instala y funciona sin conexión
+  e.waitUntil(caches.open(VERSION)
+    .then(c => c.addAll(CORE).then(() => Promise.allSettled(EXTRA.map(f => c.add(f)))))
+    .then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', e => {

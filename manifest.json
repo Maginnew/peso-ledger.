@@ -12,12 +12,12 @@
   "theme_color": "#256abf",
   "categories": ["finance", "productivity"],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "Cargar movimiento", "short_name": "Cargar", "url": "./?nuevo=1#movimientos", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Análisis", "url": "./#analisis", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+    { "name": "Cargar movimiento", "short_name": "Cargar", "url": "./?nuevo=1#movimientos", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] },
+    { "name": "Análisis", "url": "./#analisis", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] }
   ]
 }
